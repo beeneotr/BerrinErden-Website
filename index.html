@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berrin Erden NEO | Engineering, Consulting & Requirements Coaching</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+    <style>
+        :root {
+            --primary: #0a3d62;      /* Deep blue from business card */
+            --secondary: #f39c12;    /* Gold accent */
+            --accent: #3498db;       /* Complementary blue */
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --gray: #95a5a6;
+            --white: #ffffff;
+            --dark-blue: #082840;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 26px;
+            color: var(--primary);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-btn {
+            background: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s;
+            border: 2px solid var(--primary);
+        }
+        
+        .nav-btn:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%);
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 Q50,100 100,0 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 100% 100%;
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 58px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            animation: fadeInDown 1s ease;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--secondary);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 1s ease;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 14px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(243, 156, 18, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            margin-left: 20px;
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 18px;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--white);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(10, 61, 98, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-color: rgba(243, 156, 18, 0.3);
+        }
+        
+        .service-icon {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%);
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .service-icon::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 Q50,100 100,0 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 100% 100%;
+            opacity: 0.3;
+        }
+        
+        .service-icon i {
+            font-size: 60px;
+            color: var(--white);
+            z-index: 2;
+        }
+        
+        .service-content {
+            padding: 35px 30px;
+        }
+        
+        .service-content h3 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .service-content p {
+            margin-bottom: 20px;
+            color: var(--dark);
+            opacity: 0.9;
+        }
+        
+        .service-list {
+            list-style: none;
+        }
+        
+        .service-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .service-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-size: 20px;
+        }
+        
+        /* Partners Section */
+        .partners {
+            background-color: var(--light);
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            align-items: center;
+            justify-items: center;
+        }
+        
+        .partner-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 25px 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .partner-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .partner-item h4 {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            color: var(--dark);
+            opacity: 0.9;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .stat-box h3 {
+            font-size: 42px;
+            color: var(--secondary);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .stat-box p {
+            color: var(--primary);
+            font-weight: 600;
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .about-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 61, 98, 0.8) 0%, rgba(8, 40, 64, 0.9) 100%);
+        }
+        
+        .about-image-content {
+            position: relative;
+            z-index: 2;
+            padding: 50px;
+            color: var(--white);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .about-image-content h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .about-image-content p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        /* Projects Section */
+        .projects {
+            background-color: var(--light);
+        }
+        
+        .projects-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            background: var(--white);
+            border: none;
+            padding: 12px 30px;
+            margin: 0 10px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 35px;
+        }
+        
+        .project-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            background: var(--white);
+            transition: all 0.4s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .project-img {
+            height: 220px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 22px;
+            font-weight: 700;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .project-content {
+            padding: 30px;
+        }
+        
+        .project-content h3 {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .project-content p {
+            margin-bottom: 20px;
+            color: var(--dark);
+            opacity: 0.9;
+        }
+        
+        .project-meta {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(10, 61, 98, 0.1);
+        }
+        
+        .project-meta p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            opacity: 0.8;
+        }
+        
+        .project-meta .client {
+            background: var(--light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin-left: auto;
+            font-size: 13px;
+        }
+        
+/* Clients Section */
+.clients {
+    background-color: var(--white);
+    padding: 80px 0;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    align-items: center;
+    justify-items: center;
+}
+
+.client-item {
+    background: var(--light);
+    padding: 0px;
+    border-radius: 10px;
+    height: 130px; /* Adjust for logo size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+    color: var(--primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    overflow: hidden; /* Prevent logos from overflowing */
+}
+
+.client-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%);
+    color: var(--white);
+}
+
+.clients-grid .client-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fills the box; can crop wide/tall logos */
+  display: block;
+}
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(243, 156, 18, 0.1);
+            border-radius: 50%;
+        }
+        
+        .contact::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            background: rgba(243, 156, 18, 0.1);
+            border-radius: 50%;
+        }
+        
+        .contact .section-title h2 {
+            color: var(--white);
+        }
+        
+        .contact .section-title h2::after {
+            background-color: var(--secondary);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-info {
+            padding-right: 30px;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .contact-detail {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-icon i {
+            color: var(--white);
+            font-size: 24px;
+        }
+        
+        .contact-text h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .contact-text p {
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid rgba(10, 61, 98, 0.2);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.2);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 80px 0 40px;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-size: 22px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .footer-col h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 15px;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+                max-width: 300px;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 70px 0;
+            }
+            
+            .stat-box h3 {
+                font-size: 32px;
+            }
+            
+            .project-card,
+            .service-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>Berrin<span>Erden</span></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#clients">Clients</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="nav-btn">Get in Touch</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Strategic Engineering & <span>Innovation</span> Partner</h1>
+            <p>Providing world-class engineering, consulting, and requirements coaching services with proven international expertise in mobility and defense industries.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn">Request Consultation</a>
+                <a href="#projects" class="btn btn-outline">View Our Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive solutions for complex engineering challenges in mobility, defense, and energy sectors</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Engineering Excellence</h3>
+                        <p>Advanced engineering solutions with focus on embedded systems, functional safety, and verification.</p>
+                        <ul class="service-list">
+                            <li>Systems Engineering & Architecture</li>
+                            <li>Embedded Systems Development</li>
+                            <li>Safety-Critical Design (ISO 26262, ISO 21434)</li>
+                            <li>Verification & Validation (V&V)</li>
+                            <li>E-Mobility & Power Electronics</li>
+                            <li>ADAS & Autonomous Systems</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Strategic Consulting</h3>
+                        <p>Process optimization and compliance consulting to enhance operational efficiency and competitive advantage.</p>
+                        <ul class="service-list">
+                            <li>Process Maturity & Compliance (ASPICE, IATF 16949)</li>
+                            <li>ALM/PLM Toolchain Expertise</li>
+                            <li>Integrated Management Systems</li>
+                            <li>Agile Transformation</li>
+                            <li>Configuration Management</li>
+                            <li>Cost Engineering Solutions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Requirements Coaching</h3>
+                        <p>Specialized coaching for requirements engineering and management to ensure project success and compliance.</p>
+                        <ul class="service-list">
+                            <li>Requirements Engineering Workshops</li>
+                            <li>Agile Requirements Management</li>
+                            <li>ISO Compliance Training</li>
+                            <li>Custom Coaching Programs</li>
+                            <li>Model-Based Systems Engineering</li>
+                            <li>Requirements Management Tools</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="section partners" id="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Strategic Partners</h2>
+                <p>Collaborating with industry leaders to deliver exceptional solutions</p>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-item">
+                    <h4>Wondershare</h4>
+                </div>
+                <div class="partner-item">
+                    <h4>BWS Emtech</h4>
+                </div>
+                <div class="partner-item">
+                    <h4>Geniusafe</h4>
+                </div>
+                <div class="partner-item">
+                    <h4>Özyeğin University</h4>
+                </div>
+                <div class="partner-item">
+                    <h4>Lvkon</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Global Expertise, Local Solutions</h2>
+                    <p>Founded in 2016 in Istanbul, Berrin Erden NEO combines German engineering discipline with focus on Turkey's technological goals. We serve as strategic solution partner for complex engineering projects, primarily in mobility and defense industries.</p>
+                    <p>With headquarters in Istanbul and R&D Center in Kocaeli's Technology Development Zone, we bring together international expertise with local capabilities to deliver innovative solutions.</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-box">
+                            <h3>100+</h3>
+                            <p>Projects</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>20+</h3>
+                            <p>Countries</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3>100K+</h3>
+                            <p>Engineering Hours</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="about-image-content">
+                        <h3>Engineering. Energy. Mobility.</h3>
+                        <p>Berrin Erden NEO Mühendislik Danışmanlık Gıda Sanayi ve Ticaret Ltd. Şti.</p>
+                        <p>We combine technical excellence with strategic vision to help our clients achieve their most ambitious goals.</p>
+                        <a href="#contact" class="btn">Contact Our Team</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Reference Projects</h2>
+                <p>Our portfolio showcases successful projects across various industries and technologies</p>
+            </div>
+            
+            <div class="projects-tabs">
+                <button class="tab-btn active">All Projects</button>
+                <button class="tab-btn">Automotive</button>
+                <button class="tab-btn">Defense</button>
+                <button class="tab-btn">High Voltage</button>
+                <button class="tab-btn">ADAS</button>
+                <button class="tab-btn">Functional Safety</button>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        HIGH VOLTAGE E-DRIVE SYSTEMS
+                    </div>
+                    <div class="project-content">
+                        <h3>Electric Drive Unit Development</h3>
+                        <p>Developed high-voltage e-drive systems for commercial vehicles with integrated power electronics and thermal management.</p>
+                        <div class="project-meta">
+                            <p><i class="fas fa-industry"></i> Automotive</p>
+                            <p class="client">Schaeffler, BorgWarner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        ADVANCED ADAS PLATFORM
+                    </div>
+                    <div class="project-content">
+                        <h3>Autonomous Driving Features</h3>
+                        <p>Designed and validated ADAS features including automated parking, lane keeping, and traffic jam assist for premium vehicles.</p>
+                        <div class="project-meta">
+                            <p><i class="fas fa-car"></i> Automotive</p>
+                            <p class="client">BMW, Volkswagen</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        FUNCTIONAL SAFETY CERTIFICATION
+                    </div>
+                    <div class="project-content">
+                        <h3>ISO 26262 Compliance</h3>
+                        <p>Implemented functional safety processes and achieved ASIL-D certification for electric power steering systems.</p>
+                        <div class="project-meta">
+                            <p><i class="fas fa-shield-alt"></i> Functional Safety</p>
+                            <p class="client">ZF TRW, Continental</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        CYBERSECURITY FOR VEHICLES
+                    </div>
+                    <div class="project-content">
+                        <h3>ISO 21434 Implementation</h3>
+                        <p>Developed cybersecurity framework and threat analysis for connected vehicle platforms meeting UNECE R155 requirements.</p>
+                        <div class="project-meta">
+                            <p><i class="fas fa-lock"></i> Cybersecurity</p>
+                            <p class="client">MAN, Daimler</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        MILITARY VEHICLE CONTROL
+                    </div>
+                    <div class="project-content">
+                        <h3>Defense Vehicle Platform</h3>
+                        <p>System architecture and embedded software development for next-gen military vehicle platform meeting AS9100 standards.</p>
+                        <div class="project-meta">
+                            <p><i class="fas fa-shield-alt"></i> Defense</p>
+                            <p class="client">Global Defense Contractor</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        E-MOBILITY SOLUTION
+                    </div>
+                    <div class="project-content">
+                        <h3>Commercial Vehicle E-Axle</h3>
+                        <p>Strategic partnership to develop and integrate e-axle systems for commercial vehicles with Lvkon power transmission systems.</p>
+                        <div class="project-meta">
+                            <p><i class="fas fa-bolt"></i> High Voltage</p>
+                            <p class="client">Lvkon Transmission Systems</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+<section class="clients" id="clients">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Esteemed Clients</h2>
+            <p>We've partnered with industry leaders across the globe</p>
+        </div>
+        <div class="clients-grid">
+            <div class="client-item"><img src="magna.png" alt="Magna Logo"></div>
+            <div class="client-item"><img src="conti.png" alt="Continental Logo"></div>
+            <div class="client-item"><img src="zf.png" alt="ZF TRW Logo"></div>
+            <div class="client-item"><img src="kgn.png" alt="GKN Logo"></div>
+            <div class="client-item"><img src="sch.png" alt="Schaeffler Logo"></div>
+            <div class="client-item"><img src="brusa.png" alt="Brusa Logo"></div>
+            <div class="client-item"><img src="borg.png" alt="BorgWarner Logo"></div>
+            <div class="client-item"><img src="joyson.png" alt="Joyson Logo"></div>
+            <div class="client-item"><img src="bomb.png" alt="Bombardier Logo"></div>
+            <div class="client-item"><img src="te.png" alt="TE Connectivity Logo"></div>
+            <div class="client-item"><img src="man.png" alt="MAN Logo"></div>
+            <div class="client-item"><img src="vw.png" alt="Volkswagen Logo"></div>
+            <div class="client-item"><img src="dai.png" alt="Daimler Logo"></div>
+            <div class="client-item"><img src="bmw.png" alt="BMW Logo"></div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Reach out to discuss how we can help with your engineering challenges</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Headquarters</h4>
+                            <p>Güzeltepe Mah. Pembergül Sk. No:7/8<br>34680 Üsküdar / İstanbul, Türkiye</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>R&D Center</h4>
+                            <p>Muallimköy Mah. Deniz Cd. No:143/13 2B Blok 4i1<br>41400 Gebze / Kocaeli, Türkiye</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p>+90 216 460 17 20<br>+90 551 258 94 44</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>info@berrinerden.com<br>ayhan.onal@beeneo.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Website</h4>
+                            <p>www.berrinerden.com<br>www.beeneo.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="color: var(--primary); margin-bottom: 25px;">Send us a message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Your Phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service">
+                                <option value="">Select a service</option>
+                                <option value="engineering">Engineering Solutions</option>
+                                <option value="consulting">Strategic Consulting</option>
+                                <option value="requirements">Requirements Coaching</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col footer-about">
+                    <h3>Berrin Erden NEO</h3>
+                    <p>Your strategic partner for complex engineering projects in mobility and defense industries. Combining German engineering discipline with focus on Turkey's technological goals.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Engineering Solutions</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Strategic Consulting</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Requirements Coaching</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Process Optimization</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Training Programs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-arrow-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-arrow-right"></i> About Us</a></li>
+                        <li><a href="#services"><i class="fas fa-arrow-right"></i> Services</a></li>
+                        <li><a href="#projects"><i class="fas fa-arrow-right"></i> Projects</a></li>
+                        <li><a href="#contact"><i class="fas fa-arrow-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Üsküdar, Istanbul</a></li>
+                        <li><a href="tel:+902164601720"><i class="fas fa-phone"></i> +90 216 460 17 20</a></li>
+                        <li><a href="mailto:info@berrinerden.com"><i class="fas fa-envelope"></i> info@berrinerden.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 9:00 - 18:00</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Berrin Erden NEO Mühendislik Danışmanlık Gıda Sanayi ve Ticaret Ltd. Şti. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+                header.style.background = 'rgba(255,255,255,0.98)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                header.style.background = 'white';
+            }
+        });
+        
+        // Project tabs functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
